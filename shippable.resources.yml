@@ -19,8 +19,8 @@ resources:
   - name: dv-img-opts
     type: dockerOptions
     version:
-      memory: 128
-      cpuShares: 256
+      #memory: 128
+      #cpuShares: 256
       portMappings:
         - 8099:80
       publishAllPorts : true
