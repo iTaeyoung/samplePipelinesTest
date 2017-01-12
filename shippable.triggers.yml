@@ -1,5 +1,5 @@
 triggers:
-  - name: dv-trigger
+  - name: demo-trigger
     type: trigger
     version:
       counter: 3

@@ -4,22 +4,47 @@ jobs:
 
 
 # manifest gen for VISUALIZER
-  - name: dv-man
+  - name: demo-man
     type: manifest
     steps:
-      - IN: dv-img
-      - IN: dv-img-opts
+      - IN: demo-img
+      - IN: demo-img-opts
       - TASK: managed
 
 #/ manifest gen for VISUALIZER
 
 # TEST deployment for VISUALIZER to Amazon ECS
-  - name: dv-test-ecs
+  - name: demo-deploy-test
     type: deploy
     steps:
-      - IN: dv-man
-#      - IN: dv-params
-      - IN: env-test-ecs
+      - IN: demo-man
+#      - IN: demo-params
+      - IN: demo-test-ecs
       - TASK: managed
 
 # / TEST deployment for VISUALIZER to Amazon ECS
+
+
+# Release
+  - name: demo-rel
+    type: release
+    steps:
+      - IN: demo-ver
+        switch: off
+      - IN: demo-test-ecs
+        switch: off
+      - IN: demo-trigger
+        switch: off
+      - TASK: managed
+        switch: minor
+# / Release
+
+# PRODCUTION deployment for VISUALIZER to Amazon ECS
+  - name: demo-deploy-prod
+    type: deploy
+    steps:
+      - IN: demo-rel
+        switch: off
+      - IN: demo-prod-ecs
+      - TASK: managed
+# / PRODCUTION deployment for VISUALIZER to Amazon ECS

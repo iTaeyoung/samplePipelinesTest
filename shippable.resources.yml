@@ -5,7 +5,7 @@ resources:
 #######1: Create DV pipeline
 
 # Docker Image for VISUALIZER
-  - name: dv-img
+  - name: demo-img
     type: image
     integration: dockerhub-integration
     pointer:
@@ -13,10 +13,10 @@ resources:
       isPull: false
     #make sure this seed version exists in your registry account
     seed:
-      versionName: master.17 
+      versionName: latest 
 
 # Docker Image Options for VISUALIZER
-  - name: dv-img-opts
+  - name: demo-img-opts
     type: dockerOptions
     version:
       #memory: 128
@@ -26,18 +26,33 @@ resources:
       publishAllPorts : true
 
 # env vars for VISUALIZER
-#  - name: dv-params
+#  - name: demo-params
 #    type: params
 #    version:
 #      params:
 #        MONGO_API_URL: "https://api.mlab.com/api/1/databases/box-pipev2/collections/boxes?apiKey=QRsFUOV7XbNdHfTnJ7KU9bgQdnun-m_I"
 
 # add TEST env - AWS cluster
-  - name: env-test-ecs
+  - name: demo-test-ecs
     type: cluster
     integration: aws-integration
     pointer:
-      sourceName : "inslabcluser"
+      sourceName : "demotestcluster"
       region: "us-east-1"
+
+#add Release step
+  - name: demo-ver
+    type: version
+    seed:
+      versionName: "1.0.0"
+
+#add PROD env - AWS cluster
+  -name: demo-prod-ecs
+   type: cluster
+   integration: aws-integration
+   pointer:
+     sourceName: "demoprodcluster"
+     region: "us-east-1"
+
 
 #######1: EOF Create DV pipeline
