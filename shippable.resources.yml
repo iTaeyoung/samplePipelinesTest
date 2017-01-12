@@ -9,7 +9,7 @@ resources:
     type: image
     integration: dockerhub-integration
     pointer:
-      sourceName: "demoshippable/samplepipelinesdemo"
+      sourceName: "inslabshippable/samplepipelines"
       isPull: false
     #make sure this seed version exists in your registry account
     seed:
