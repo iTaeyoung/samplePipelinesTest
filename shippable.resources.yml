@@ -47,12 +47,12 @@ resources:
       versionName: "1.0.0"
 
 #add PROD env - AWS cluster
-  -name: demo-prod-ecs
-   type: cluster
-   integration: aws-integration
-   pointer:
-     sourceName: "demoprodcluster"
-     region: "us-east-1"
+  - name: demo-prod-ecs
+    type: cluster
+    integration: aws-integration
+    pointer:
+      sourceName: "demoprodcluster"
+      region: "us-east-1"
 
 
 #######1: EOF Create DV pipeline
