@@ -31,7 +31,7 @@ jobs:
     steps:
       - IN: demo-ver
         switch: off
-      - IN: demo-test-ecs
+      - IN: demo-deploy-test
         switch: off
       - IN: demo-trigger
         switch: off
