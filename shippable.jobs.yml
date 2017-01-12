@@ -36,7 +36,7 @@ jobs:
       - IN: demo-trigger
         switch: off
       - TASK: managed
-        switch: minor
+        bump: minor
 # / Release
 
 # PRODCUTION deployment for VISUALIZER to Amazon ECS
