@@ -35,10 +35,14 @@ resources:
 # add TEST env - AWS cluster
   - name: demo-test-ecs
     type: cluster
-    integration: aws-integration
+    integration: GKE-integration
     pointer:
       sourceName : "demotestcluster"
-      region: "us-east-1"
+      region: "asia-northeast1-b"
+#    integration: aws-integration
+#    pointer:
+#      sourceName : "demotestcluster"
+#      region: "us-east-1"
 
 #add Release step
   - name: demo-ver
@@ -49,10 +53,14 @@ resources:
 #add PROD env - AWS cluster
   - name: demo-prod-ecs
     type: cluster
-    integration: aws-integration
+    integration: GKE-integration
     pointer:
       sourceName: "demoprodcluster"
-      region: "us-east-1"
+      region: "asia-northeast1-b"
+#    integration: aws-integration
+#    pointer:
+#      sourceName: "demoprodcluster"
+#      region: "us-east-1"
 
 
 #######1: EOF Create DV pipeline
