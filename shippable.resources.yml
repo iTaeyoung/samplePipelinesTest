@@ -19,7 +19,7 @@ resources:
   - name: demo-img-opts
     type: dockerOptions
     version:
-      #memory: 128
+      memory: 128
       #cpuShares: 256
       portMappings:
         - 80:80
