@@ -37,7 +37,7 @@ resources:
     type: cluster
     integration: aws-integration
     pointer:
-      sourceName : "demotestcluster"
+      sourceName : "demotest1cluster"
       region: "us-east-1"
 
 #add Release step
