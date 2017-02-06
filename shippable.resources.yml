@@ -22,7 +22,7 @@ resources:
       memory: 128
       #cpuShares: 256
       portMappings:
-        - 80:80
+        - 8099:80
       publishAllPorts : true
 
 # env vars for VISUALIZER
